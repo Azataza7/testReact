@@ -9,10 +9,12 @@ interface Props {
 
 const ItemOrder: React.FC<Props> = ({name, count, price, deleteBtn}) => {
   return (
-    <div className={'userOrder' + name}>
-      <span>{name}</span>
-      <span>{count}</span>
-      <span>{price}KGS</span>
+    <div className={'userOrder ' + name}>
+      <span className="nameItem">{name}</span>
+      <div className="price-count">
+        <span className="itemCount">x{count}</span>
+        <span className="itemPrice">{price}KGS</span>
+      </div>
       <button className='delete-item' onClick={deleteBtn}/>
     </div>
   );

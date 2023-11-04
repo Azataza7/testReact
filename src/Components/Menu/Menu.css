@@ -33,3 +33,23 @@
 .menu-item span {
   display: block;
 }
+
+.userOrder {
+  position: relative;
+  padding: 20px;
+}
+
+.userOrder span {
+  padding-right: 20px;
+}
+
+.nameItem {
+
+}
+
+.delete-item {
+  position: absolute;
+  top: 32%;
+  right: 5px;
+  background: url("../../assets/trash.svg") center no-repeat;
+}

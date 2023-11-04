@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemOrder from './ItemOrder';
+import TotalPrice from '../TotalPrice/TotalPrice';
 
 interface OrderItem {
   name: string;
@@ -24,7 +25,9 @@ const UserOrder: React.FC<Props> = ({items, removeItem}) => {
     </span>
   );
 
-  const orderList = (items.map((item, index) => (
+  const filteredItems = items.filter((item) => item.count > 0);
+
+  const orderList = (filteredItems.map((item, index) => (
     <ItemOrder
       key={index}
       name={item.name}
@@ -35,9 +38,12 @@ const UserOrder: React.FC<Props> = ({items, removeItem}) => {
 
   return (
     <div className="userOrder">
-      {items.map((item) => ( item.count > 0))}
-      {orderList}
-      <div className="totalCost">You have to pay: {calculateTotalPrice()} KGS</div>
+      {filteredItems.length === 0 ? (
+        emptyTextOrder
+      ) : (
+        orderList
+      )}
+      <TotalPrice sum={calculateTotalPrice()}/>
     </div>
   );
 
