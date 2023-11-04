@@ -1,0 +1,29 @@
+.Menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-details {
+  border: 1px solid red;
+}
+
+.menu-container {
+  border: 1px solid red;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu-item {
+  border: 1px solid red;
+}
+
+.menu-item img {
+  width: 200px;
+  height: 200px;
+}
+
+.menu-item span {
+  display: block;
+}
