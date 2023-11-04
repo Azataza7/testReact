@@ -9,9 +9,10 @@ interface OrderItem {
 
 interface Props {
   items: OrderItem[];
+  removeItem: (item: OrderItem) => void;
 }
 
-const UserOrder: React.FC<Props> = ({items,}) => {
+const UserOrder: React.FC<Props> = ({items, removeItem}) => {
 
   const calculateTotalPrice = () => {
     return items.reduce((total, item) => total + item.price * item.count, 0);
@@ -24,12 +25,19 @@ const UserOrder: React.FC<Props> = ({items,}) => {
   );
 
   const orderList = (items.map((item, index) => (
-    <ItemOrder key={index} name={item.name} count={item.count} price={item.price}/>
+    <ItemOrder
+      key={index}
+      name={item.name}
+      count={item.count}
+      price={item.price}
+      deleteBtn={() => removeItem(item)}/>
   )));
 
   return (
     <div className="userOrder">
+      {items.map((item) => ( item.count > 0))}
       {orderList}
+      <div className="totalCost">You have to pay: {calculateTotalPrice()} KGS</div>
     </div>
   );
 

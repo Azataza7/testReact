@@ -7,12 +7,13 @@ interface Props {
   deleteBtn: () => void;
 }
 
-const ItemOrder: React.FC<Props> = ({name, count, price, }) => {
+const ItemOrder: React.FC<Props> = ({name, count, price, deleteBtn}) => {
   return (
     <div className={'userOrder' + name}>
       <span>{name}</span>
       <span>{count}</span>
       <span>{price}KGS</span>
+      <button className='delete-item' onClick={deleteBtn}/>
     </div>
   );
 };

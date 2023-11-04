@@ -45,6 +45,11 @@ const Menu = () => {
     }
   };
 
+  const removeItemFromOrder = (item) => {
+    const updatedItems = items.filter((orderItem) => orderItem.name !== item.name);
+    setItems(updatedItems);
+  };
+
   const menuList = (MENUITEMS.map((item, index) => (
       <ItemMenu
         key={index}
@@ -58,7 +63,7 @@ const Menu = () => {
   return (
     <div className="Menu">
       <div className="order-details">
-        <UserOrder items={items}/>
+        <UserOrder items={items} removeItem={removeItemFromOrder}/>
       </div>
       <div className="menu-container">
         {menuList}
