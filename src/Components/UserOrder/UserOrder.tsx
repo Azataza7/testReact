@@ -38,15 +38,15 @@ const UserOrder: React.FC<Props> = ({items, removeItem}) => {
 
   return (
     <div className="userOrder">
+      {filteredItems.length > 0 && (<h1 className="order-title">Ваш Заказ:</h1>)}
       {filteredItems.length === 0 ? (
         emptyTextOrder
       ) : (
         orderList
       )}
-      <TotalPrice sum={calculateTotalPrice()}/>
+      {filteredItems.length > 0 && (<TotalPrice sum={calculateTotalPrice()} />)}
     </div>
   );
-
 };
 
 export default UserOrder;

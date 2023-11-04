@@ -44,7 +44,7 @@
 }
 
 .nameItem {
-
+  color: green;
 }
 
 .delete-item {
@@ -52,4 +52,12 @@
   top: 32%;
   right: 5px;
   background: url("../../assets/trash.svg") center no-repeat;
+}
+
+.order-title {
+  font-size: 22px;
+}
+
+.totalCost {
+  text-align: right;
 }
