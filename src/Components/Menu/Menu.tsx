@@ -1,11 +1,12 @@
-import burgerImage from '../assets/hamburger.svg';
-import bearImage from '../assets/bear.svg';
-import cheeseburgerImage from '../assets/cheeseburger.svg';
-import coffeeImage from '../assets/coffee.svg';
-import friesImage from '../assets/fries.svg';
-import teaImage from '../assets/tea.svg';
+import burgerImage from '../../assets/hamburger.svg';
+import bearImage from '../../assets/bear.svg';
+import cheeseburgerImage from '../../assets/cheeseburger.svg';
+import coffeeImage from '../../assets/coffee.svg';
+import friesImage from '../../assets/fries.svg';
+import teaImage from '../../assets/tea.svg';
 
 import ItemMenu from './ItemMenu';
+import UserOrder from '../UserOrder/UserOrder';
 import './Menu.css';
 import {useState} from 'react';
 
@@ -27,25 +28,37 @@ const Menu = () => {
   ];
 
   const [items, setItems] = useState(
-    MENUITEMS.map((item) => ({...item, count: 0}))
+    MENUITEMS.map((item) => ({ ...item, count: 0 }))
   );
 
-  const addItemOrder = () => {
-
+  const addItemOrder = (item) => {
+    const existingItem = items.find((orderItem) => orderItem.name === item.name);
+    if (existingItem) {
+      const updatedItems = items.map((orderItem) =>
+        orderItem.name === item.name
+          ? { ...orderItem, count: orderItem.count + 1 }
+          : orderItem
+      );
+      setItems(updatedItems);
+    } else {
+      setItems([...items, { ...item, count: 1 }]);
+    }
   };
 
   const menuList = (MENUITEMS.map((item, index) => (
-      <ItemMenu key={index} image={item.image} name={item.name} price={item.price} addToOrder={addItemOrder}/>
+      <ItemMenu
+        key={index}
+        image={item.image}
+        name={item.name}
+        price={item.price}
+        addToOrder={() => addItemOrder(item)}/>
     ))
   );
-
-  const emptyOrderText = <span>Тут слишком пусто! <br/> Добавь что-нибудь покушац</span>;
 
   return (
     <div className="Menu">
       <div className="order-details">
-        {emptyOrderText}
-
+        <UserOrder items={items}/>
       </div>
       <div className="menu-container">
         {menuList}
