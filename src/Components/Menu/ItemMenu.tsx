@@ -12,7 +12,7 @@ const itemMenu: React.FC<Props> = ({image, name, price, addToOrder}) => {
     <div className="menu-item" onClick={addToOrder}>
       <img src={image} alt={'imageOf' + name}/>
       <span>{name}</span>
-      <span>Price: {price} KGS</span>
+      <span>Цена: {price} KGS</span>
     </div>
   );
 };

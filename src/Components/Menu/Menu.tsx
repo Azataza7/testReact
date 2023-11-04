@@ -28,7 +28,7 @@ const Menu = () => {
   ];
 
   const [items, setItems] = useState(
-    MENUITEMS.map((item) => ({ ...item, count: 0 }))
+    MENUITEMS.map((item) => ({...item, count: 0}))
   );
 
   const addItemOrder = (item) => {
@@ -36,12 +36,12 @@ const Menu = () => {
     if (existingItem) {
       const updatedItems = items.map((orderItem) =>
         orderItem.name === item.name
-          ? { ...orderItem, count: orderItem.count + 1 }
+          ? {...orderItem, count: orderItem.count + 1}
           : orderItem
       );
       setItems(updatedItems);
     } else {
-      setItems([...items, { ...item, count: 1 }]);
+      setItems([...items, {...item, count: 1}]);
     }
   };
 

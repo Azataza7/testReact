@@ -21,7 +21,7 @@ const UserOrder: React.FC<Props> = ({items, removeItem}) => {
 
   const emptyTextOrder = (
     <span>
-      Тут пусто!<br/> Добавь что-нибудь покушать
+      Тут пусто!<br/> Добавьте что-нибудь покушац
     </span>
   );
 
@@ -44,7 +44,7 @@ const UserOrder: React.FC<Props> = ({items, removeItem}) => {
       ) : (
         orderList
       )}
-      {filteredItems.length > 0 && (<TotalPrice sum={calculateTotalPrice()} />)}
+      {filteredItems.length > 0 && (<TotalPrice sum={calculateTotalPrice()}/>)}
     </div>
   );
 };

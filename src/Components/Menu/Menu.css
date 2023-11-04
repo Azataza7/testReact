@@ -4,25 +4,30 @@
 }
 
 .order-details {
-  border: 1px solid red;
   flex-basis: 40%;
+  background-color: gainsboro;
 }
 
 .menu-container {
-  border: 1px solid red;
   flex-basis: 60%;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
+  padding: 20px;
+  background-color: gainsboro;
 }
 
 .menu-item {
-  border: 1px solid red;
+  border-radius: 10px;
   flex-basis: 20%;
   text-align: center;
   padding: 10px;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
 }
 
 .menu-item img {
@@ -32,15 +37,18 @@
 
 .menu-item span {
   display: block;
+  color: #1a1a1a;
 }
 
 .userOrder {
   position: relative;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .userOrder span {
   padding-right: 20px;
+  font-weight: 600;
 }
 
 .nameItem {
@@ -48,16 +56,28 @@
 }
 
 .delete-item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 32%;
   right: 5px;
   background: url("../../assets/trash.svg") center no-repeat;
 }
 
+.delete-item:hover {
+  transform: scale(1.1);
+}
+
 .order-title {
   font-size: 22px;
+  color: green;
 }
 
 .totalCost {
   text-align: right;
+}
+
+.price-count span {
+  color: #1a1a1a;
 }
